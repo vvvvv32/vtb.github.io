@@ -1,0 +1,250 @@
+<!--TIPO DE DOCUMENTO: HTML-->
+<!DOCTYPE html>
+
+<!--COMIENZO DEL SCRIPT EN SÍ-->
+<html>
+
+<!--DATOS DE CABECERA-->
+
+<!--TÍTULO DE LA PÁGINA-->
+<title>Página web Víctor Trullenque</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<!--AUTOR DE LA PÁGINA-->
+<meta author="Víctor Trullenque Blanco">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--ENLACES DE FUENTES Y ESTILOS DE REFERENCIA-->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!--ESTILOS A APLICAR-->
+<style>
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-row-padding img {margin-bottom: 12px}
+</style>
+
+
+<body>
+  
+  <!-- DATOS SOBRE LA BARRA ESCONDIDA EN EL ICONO DE MENU QUE APARECE CUANDO CLICAS-->
+  <nav class="w3-sidebar w3-black w3-animate-right w3-xxlarge" style="display:none;padding-top:150px;right:0;z-index:2" id="mySidebar">
+    <a href="javascript:void(0)" onclick="closeNav()" class="w3-button w3-black w3-xxxlarge w3-display-topright" style="padding:0 12px;">
+      <i class="fa fa-remove"></i>
+    </a>
+
+    <!--DATOS SOBRE LOS BOTONES QUE APARECEN Y TEXTO QUE SE VA A VER-->
+    <div class="w3-bar-block w3-center">
+      <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Inicio</a>
+      <a href="#about" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Descripción</a>
+      <a href="#portfolio" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Fondo documental</a>
+      <a href="#contact" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Contacto</a>
+    </div>
+  </nav>
+  
+  <!-- CONTENIDO DEL CUERPO DE LA PÁGINA-->
+
+  <!--DEFINICIÓN DE LA CLASE DE ESTILO DEL QUE VA A TIRAR-->
+  <div class="w3-main w3-padding-large" style="margin-left:10%; margin-right: 10%;">
+  
+    <!--BOTÓN DE MENÚ (Y SU BARRA CORRESPONDIENTE)-->
+    <span class="w3-button w3-top w3-white w3-xxlarge w3-text-grey w3-hover-text-black" style="width:auto;right:0;" onclick="openNav()"><i class="fa fa-bars"></i></span>
+  
+    <!--TÍTULO Y SUBTÍTULO DEL ENCABEZADO-->
+    <header class="w3-container w3-center" style="padding:50px 16px" id="home">
+      <h1 class="w3-jumbo"><b>Río Sosa</b></h1>
+      <h3>Ejemplo paradigmático de rambla mediterránea</h3>
+
+      <!--IMAGEN A PARTIR DE UN ENLACE ONLINE -->
+      <a  href="https://i.pinimg.com/originals/4a/10/d4/4a10d45314c792de8c3bc0b867261b72.jpg">
+        <img src="https://i.pinimg.com/originals/4a/10/d4/4a10d45314c792de8c3bc0b867261b72.jpg" class="w3-circle" width="850"> <!--QUE APAREZCA RECORTADA COMO CÍRCULO Y TAMAÑO--> </a>
+    </header>
+    
+  
+    <!-- APARTADO DE DESCRIPCIÓN -->
+    <div class="w3-content w3-justify w3-text-grey w3-padding-32" id="about">
+      <h2>Descripción</h2> <!--TÍTULO DE LA SECCIÓN-->
+      <hr class="w3-opacity"> <!--ESTILO-->
+      <p> Este río nace en la comarca de La Litera, en la sierra de la Carrodilla, y atraviesa Peralta, Azanuy, La Almunia de San Juan, Alins del Monte, San Esteban de Litera y Monzón; lugar dónde se encuentra su desembocadura. Tiene dos fuentes, en Gabasa y en Calasanz.  <!--TEXTO-->
+          
+      <br><br> <!--SALTOS DE LÍNEA-->
+  
+      Su caudal es bajo a lo largo de todo el año a excepción de cortos periodos de crecida provocados por fuertes episocios de precipitaciones. Al ser un cauce de tipo rambla mediterránea mantiene seco parte de su cauce (sobre todo en su parte central) en los periodos de estiaje. <!--TEXTO-->
+      
+  <br><br><!--SALTOS DE LÍNEA-->
+
+  <p class="w3-wide">Situación</p> <!--ESTILO Y TÍTULO DE LA SUBSECCIÓN-->
+
+  <!--ENLACE ANIDADO A UNA PÁGINA PROPIA MAPA 1-->
+  <a href="vtb_maps\leaflet\mapa1.html">Mapa de los municipios de la provincia de Huesca</a>
+
+  <br><br><!--SALTOS DE LÍNEA-->
+
+<!--ENLACE ANIDADO A UNA PÁGINA PROPIA MAPA 2-->
+  <a href="vtb_maps\mapa2\victor_trullenque_qgis2web\mapa2.html">Mapa de la hidrografía de la provincia de Huesca</a>
+
+<!--ESTILO Y TÍTULO DE LA SUBSECCIÓN-->
+<p class="w3-wide">Episodios de crecida</p> 
+  
+Las ramblas son cauces con regímenes torrenciales, presentes en climas subáridos, con precipitaciones escasas e irregularmente distribuidas, que pueden ser episódicamente intensas. <!--TEXTO DE LA SUBSECCIÓN-->
+
+<br><!--SALTO DE LÍNEA-->
+Un ejemplo de crecida en este tipo de ambientes fue la que se dió en el río Sosa del 15 de agosto de 2006 donde se llegaron a alcanzar caudales de entorno a 300 m3 por segundo . En los siguientes enlaces se pueden apreciar sus efectos en el tramo del río a su paso por Monzón. <!--TEXTO DE LA SUBSECCIÓN-->
+  
+  <br><br><!--SALTOS DE LÍNEA-->
+      
+<!--ENLACES ANIDADOS A VÍDEOS EXTERNOS DE LA RED CON SUS RESPECTIVOS TEXTOS PARA ACCEDER-->
+
+  <a target="_blank" href=https://www.youtube.com/watch?v=h0ysddjHDRI>Crecida del río Sosa de 2006 (1)</a>
+      
+  <a target="_blank" href=https://www.youtube.com/watch?v=XeNQ5K4L4Ek>Crecida del río Sosa de 2006 (2)</a>
+      
+  <a target="_blank" href=https://www.youtube.com/watch?time_continue=22&v=K3dx5DOZbkc&feature=emb_title>Crecida del río Sosa 2006 (3)</a>
+          
+
+</p>
+<!--ESTILO Y TÍTULO DE LA SECCIÓN INTERMEDIA-->
+<h3 class="w3-padding-16">Enlaces</h3>
+
+<!--ESTILO Y TÍTULO DE LA SUBSECCIÓN-->
+<p class="w3-wide">Estudios</p>
+
+<!--ENLACES ANIDADOS A WEBS EXTERNAS CON ESTUDIOS REFERENTES AL RÍO EN LA RED CON SUS RESPECTIVOS TEXTOS PARA ACCEDER-->
+
+<a target="_blank" href=https://zaguan.unizar.es/record/56547?ln=es>Usos del suelo y las precipitaciones en la cuenca del río Sosa.</a>
+
+<br><br><!--SALTOS DE LÍNEA-->
+
+<a target="_blank" href=https://drive.google.com/file/d/0B6EfrdMXrrVqbnJyQXlLYVBsd0E/edit>Valoración de los trabajos de limpieza del río Sosa a su paso por Monzón.</a>
+  
+<!--ESTILO Y TÍTULO DE LA SUBSECCIÓN-->
+<p class="w3-wide">Entradas a páginas</p>
+  
+<!--ENLACE ANIDADO A WEB EXTERNA DE LA RED CON SU TEXTO PARA ACCEDER-->
+<a target="_blank" href=http://www.saihebro.com/saihebro/index.php?url=/datos/ficha/estacion:A301>Aforo del río Sosa en directo a su paso por Monzón.</a>
+  
+<br><br><!--SALTOS DE LÍNEA-->
+      
+<!--AQUÍ ACABA EL APARTADO DE DESCRIPCIÓN-->
+
+</div>
+
+<!--APARTADO DE "FONDO DOCUMENTAL"-->
+<div class="w3-padding-32 w3-content" id="portfolio">
+  <h2 class="w3-text-grey">Fondo documental</h2>
+  <hr class="w3-opacity">
+
+  <!--MARCO Y ESTILO DONDE SE ENCAJAN LOS ARCHIVOS-->
+  <div class="w3-row-padding" style="margin:0 -16px">
+
+    <!--BLOQUE IZQUIERDO-->
+    <div class="w3-half">
+
+      <!--IMAGEN A PARTIR DE UN ENLACE ONLINE: FUENTE Y TAMAÑO-->
+      <a href="http://1.bp.blogspot.com/-ABp9stEqF5Q/TiyZss42YlI/AAAAAAAAJd4/h5XfsxdUfWo/s1600/DSC_0339.jpg">
+        <img src="http://1.bp.blogspot.com/-ABp9stEqF5Q/TiyZss42YlI/AAAAAAAAJd4/h5XfsxdUfWo/s1600/DSC_0339.jpg" width="100%">  </a>
+        
+       <!--IMAGEN A PARTIR DE UN ENLACE ONLINE: FUENTE Y TAMAÑO-->
+      <a href="https://i.pinimg.com/originals/4a/10/d4/4a10d45314c792de8c3bc0b867261b72.jpg">
+      <img src="https://www.huescalamagia.es/blog/wp-content/uploads/2016/11/Barranco-de-Gabasa-.jpg" width="100%">  </a>
+          
+      <!--AUDIO A PARTIR DE UN ARCHIVO PROPIO: FUENTE Y CONTROLES-->
+      <audio src="vtb_archivos\audio.mp3" preload="none" controls="controls" loop="loop"></audio> 
+
+    </div>
+
+    <!--BLOQUE DERECHO-->
+    <div class="w3-half">
+
+    <!--IMAGEN A PARTIR DE UN ARCHIVO PROPIO: FUENTE Y TAMAÑO-->
+      <img src="vtb_archivos/imagen.jpg" style="width:100%">
+
+    <!--IMAGEN A PARTIR DE UN ENLACE ONLINE: FUENTE Y TAMAÑO-->
+      <a href="http://www.dehuesca.es/~sipca/IMAGEN/1-INM-HUE-008-158-031/MUESTRA/1-INM-HUE-008-158-031_04_M.jpg">
+      <img src="http://www.dehuesca.es/~sipca/IMAGEN/1-INM-HUE-008-158-031/MUESTRA/1-INM-HUE-008-158-031_04_M.jpg" width="100%">  </a> 
+
+    <!--VIDEO A PARTIR DE UN ARCHIVO PROPIO: FUENTE, TAMAÑO, QUE SE REPRODUXCA AUTOMÁTICAMENTE Y CONTROLES-->
+    <video src="vtb_archivos\video.webm"
+      preload="yes"
+      controls="controls"
+      autoplay="autoplay"
+      loop="loop"
+       width="100%">
+      </video>
+      
+    </div>
+    <!--TEXTO CON LAS REFERENCIAS DE LOS ARCHIVOS WEB-->
+    Fuentes: imagen de la cascada de Gabasa tomada prestada de excursiones-por-el-monte.blogspot; imagen del barranco de Gabasa tomada prestada de huescalamagia.es; imagen del río Sosa bajo el puente viejo de Monzón tomada prestada de SIPCA.es. Audio y vídeo cedidos por Miguel Sevilla.
+    </div>
+
+</div> 
+  </div>
+<!--FIN DEL APARTADO FONDO DOCUMENTAL-->
+
+</div>
+
+<!--  APARTADO  DE CONTACTO -->
+<div class="w3-padding-32 w3-content w3-text-grey" id="contact" style="margin-bottom:64px">
+      <h2>CONTACTO</h2>
+      <hr class="w3-opacity">
+  
+      <div class="w3-section">
+        <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Huesca, Aragón</p>
+        <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Teléfono de contacto: +_________</p>
+        <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Dirección de correo: _____@_____.__</p>
+      </div>
+    </p>
+    </p>
+  
+      <p>Si tienes alguna duda o quieres ponerte en contacto conmigo, adelante:</p>
+      <form action="/action_page.php" target="_blank">
+        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
+        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email"></p>
+        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Subject" required name="Subject"></p>
+        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message" required name="Message"></p>
+        <p>
+          <button class="w3-button w3-light-grey w3-padding-large" type="submit">
+            <i class="fa fa-paper-plane"></i> ENVIAR MENSAJE
+          </button>
+        </p>
+      </form>
+      
+    <!--FIN DELA APARTADO DE CONTACTO-->
+    </div> 
+  
+    <!--BOTÓN PARA SABER LA FECHA Y LA HORA EN DIRECTO-->
+    <button type="button"
+    onclick="document.getElementById('boton1').innerHTML = Date()" style="margin-left:15%; margin-right: 15%;">
+    Fecha y hora </button>
+    <p id="boton1"></p>
+
+  <br><br><br><br><!--SALTOS DE LÍNEA-->
+
+    <!-- CUADRO DEL FINAL DE LA PÁGINA -->
+    <footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge" style="margin:-24px">
+      
+      <p class="w3-medium">Página desarrollada por Víctor Trullenque en el contexto del módulo 5.3 - Asignatura 60418 del Máster de TIG para la Ordenación del Territorio: SIG y Teledetección </p>
+    <!-- FINAL DEL CUADRO DEL FINAL DE LA PÁGINA -->
+    </footer>
+    
+  <!-- FIN DE LOS CONTENIDOS DE LA PÁGINA -->
+  </div>
+
+  <script>//SCRIPT CON LAS FUNCIONES DE LA BARRA LATERAL
+
+  // FUNCION DE ABRIR LA BARRA LATERAL: ESTILO, TAMAÑO
+  function openNav() {
+    document.getElementById("mySidebar").style.width = "40%";
+    document.getElementById("mySidebar").style.display = "block";
+  }
+  // FUNCION DE CERRARLA
+  function closeNav() {
+    document.getElementById("mySidebar").style.display = "none";
+  }
+  </script><!--FIN DEL SCRIPT-->
+  </body>
+  
+  <!--FIN DEL HTML-->
+  </html>

@@ -1,0 +1,146 @@
+<!--TIPO DE DOCUMENTO: HTML-->
+<!DOCTYPE html>
+
+<html>
+
+<!--CABECERA-->
+<head>
+<!--TÍTULO DE LA PÁGINA-->
+    <title>Mapa de los municipios de la provincia de Huesca</title>
+    <meta charset="utf-8" />
+
+<!-- ENLACE AL CSS DE LEAFLET v. 1.6.0-->
+    <link rel="stylesheet" href="codigo_js/leaflet.css"/>
+<!-- ENLACE AL JS DE LEAFLET v. 1.6.0-->
+
+    <script src="codigo_js/leaflet.js"></script>
+</head>
+<!--FIN DE LA CABECERA-->
+
+
+<body>
+<!--TÍTULO QUE SE VA A VER EN LA PÁGINA--> 
+<h2>Mapa de los municipios de la provincia de Huesca</h2>
+<!--TEXTO INTRODUCTORIO--> 
+<p>En este visor se muestran la localización de la desembocadura del río Sosa y los municipios de la provincia de Huesca sobre diferentes fondos: imagen de satélite de Esri,
+<br>
+imagen de satélite nocturna de la NASA y mapas de Open Street Maps estándar y topográfico. 
+<br><br>
+También se pueden consultar la ortofoto del PNOA de máxima actualidad (2018) y el Vuelo Americano B de 1956/57.</p>
+
+<!--BLOQUE CON EL PROPIO MAPA-->
+<div id="bloque_mapa1" 
+    style="width: 900px; height: 450px;"> <!--TAMAÑO DEL MAPA--> 
+</div>
+
+<!--AÑADIR EL JAVASCRIPT CON EL GEOJSON-->
+<script src="layers/municipios.geojson"></script>
+
+
+<!--CÓDIGO JS DE LEAFLET-->
+<script>
+
+// DEFINIR LA VARIABLE MAPA Y SE LE DA UNA COORDENADA Y ZOOM PREDETERMINADOS DE INICIO
+
+var mapa1 = L.map('bloque_mapa1').setView([42, 0], 8);
+
+// DEFINIR LA VARIABLE MARCADOR Y SE LE DA UNA COORDENADA (EN MI CASO EN LA DESEMBOCADURA DLE RÍO SOSA)
+var punt = L.marker([41.9144, 0.177], {}); 
+  punt.addTo(mapa1);           // AÑADIR EL MARCADOR A LA VISTA DEL MAPA
+
+//CREAR LA VARIABLE NASA A MODO DE MAPA QUE APAREZCA DE FONDO
+var NASA = L.tileLayer('https://map1.vis.earthdata.nasa.gov/wmts-webmerc/VIIRS_CityLights_2012/default/{time}/{tilematrixset}{maxZoom}/{z}/{y}/{x}.{format}', { //URL
+  //ATRIBUCIÓN QUE APARECERÁ EN EL MAPA
+	attribution: 'Imagery provided by  the NASA/GSFC/Earth Science Data and Information System.',
+	bounds: [[-85.0511287776, -179.999999975], [85.0511287776, 179.999999975]], //EXTENSIÓN
+	minZoom: 1, //ZOOM MÍNIMO
+	maxZoom: 8, //ZOOM MÁXIMO
+	format: 'jpg', //FORMATO DEL ARCHIVO
+	time: '',
+	tilematrixset: 'GoogleMapsCompatible_Level'
+});
+
+//CREAR LA VARIABLE CYLOSM A MODO DE MAPA QUE APAREZCA DE FONDO
+var CyclOSM = L.tileLayer('https://dev.{s}.tile.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png', { //URL
+	maxZoom: 20, //ZOOM MÁXIMO
+  //ATRIBUCIÓN QUE APARECERÁ EN EL MAPA
+	attribution: '<a href="https://github.com/cyclosm/cyclosm-cartocss-style/releases" title="CyclOSM - Open Bicycle render">CyclOSM</a> | Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+});
+
+//CREAR LA VARIABLE OPENTOPOMAP A MODO DE MAPA QUE APAREZCA DE FONDO
+var OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', { //URL
+	maxZoom: 17, //ZOOM MÁXIMO
+  //ATRIBUCIÓN QUE APARECERÁ EN EL MAPA
+	attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+});
+
+//CREAR LA VARIABLE ESRI_WORLDIMAGERY A MODO DE MAPA QUE APAREZCA DE FONDO
+var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { //URL
+  //ATRIBUCIÓN QUE APARECERÁ EN EL MAPA
+	attribution: 'Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community.'
+});
+
+//QUE APAREZCA ESTE FONDO INICIALMENTE EN AL VISTA DEL MAPA
+Esri_WorldImagery.addTo(mapa1);
+
+
+//CREAR VARIABLE PARA AÑADIR LA CAPA DE MUNICIPIOS DE LA PROVINCIA DE HUESCA DESDE EL GEOJSON
+
+var municipios = L.geoJSON(  //HACER EL OBJETO MUNICIPIOS COMO UNA CAPA  GEOJSON
+  municipios, {              //QUE SE CARGUE EL CÓDIGO: "MUNICIPIOS"
+  color: 'blue',             //COLOR DE LOS BORDES DE LA CAPA
+  fillColor: 'grey',         //COLOR DEL RELLENO DE LA CAPA
+  fillOpacity: 0.3,          //GRADO DE OPACIDAD DEL RELLENO DE LA CAPA
+  });
+
+//QUE APAREZCA ESTA CAPA INICIALMENTE EN AL VISTA DEL MAPA
+municipios.addTo(mapa1)   //
+
+
+//CREAR LA VARIABLE AMS_B A MODO DE CAPA DE VISTA OPCIONAL
+    var AMS_b = L.tileLayer.wms('http://www.ign.es/wms/pnoa-historico?', { //URL WMS
+layers: 'AMS_1956-1957', // SELECCIONAR EL WMS: AMS_1956-1957
+format: 'image/png', //FORMATO DEL ARCHIVO
+transparent: true, //ACTIVA LA CAPA ALFA/TRANSPARENTE
+attribution: ' <i>Vuelo Americano B 1956/57</i> &copy; IGN' //ATRIBUCIÓN QUE APARECERÁ EN EL MAPA
+});
+
+//CREAR LA VARIABLE AMS_B A MODO DE CAPA DE VISTA OPCIONAL
+var PNOA = L.tileLayer.wms('http://www.idee.es/wms/PNOA/PNOA?', { //URL WMS
+layers: 'PNOA', // SELECCIONAR LA CAPA EL WMS
+format: 'image/png', //FORMATO DEL ARCHIVO
+transparent: true, //ACTIVA LA CAPA ALFA/TRANSPARENTE
+attribution: ' <i>Imagen PNOA</i> &copy; IGN'   //ATRIBUCIÓN QUE APARECERÁ EN EL MAPA
+});
+
+
+//CÓDIGO DE CONTROLES DE LAS CAPAS
+//CREAR LA VARIABLE DE MAPAS BASE
+var baseMaps = { 
+//RELACIÓN DE LAS CAPAS QUE VAN A APARECER Y EL NOMBRE CON EL QUE SE VERÁN
+"Tierra de noche": NASA, "Topografía":OpenTopoMap, "Open Street Map": CyclOSM, "Imágen de satélite Esri": Esri_WorldImagery 
+};
+
+//CREAR LA VARIABLE DE CAPAS OPCIONALES
+var overlayMaps = {
+//RELACIÓN DE LAS CAPAS QUE VAN A APARECER Y EL NOMBRE CON EL QUE SE VERÁN
+    "Ortofoto PNOA": PNOA, "Vuelo Americano B":AMS_b, "Municipios de la provincia de Huesca": municipios, "Desembocadura río Sosa": punt 
+    };
+
+//CREAR EL CONTROL DE CAPAS
+var capas = L.control.layers(   // VARIEBLE
+  baseMaps,                     // VARIABLE MAPAS BASE
+  overlayMaps,                  // VARIABLE CAPAS OPCIONALES
+  {collapsed:true,              // DESPLEGAR CONTROL
+   hideSingleBase:true          // ESCONDER LA BASE 
+  });           
+
+//AÑADIR EL CONTROL DE CAPAS AL VISOR
+capas.addTo(mapa1);
+
+// ESCALA CON EL FORMATO ABREVIADO
+var escala = L.control.scale({imperial:false})
+escala.addTo(mapa1);
+
+//FIN DEL SCRIPT
+</script>
